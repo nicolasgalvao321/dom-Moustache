@@ -1,0 +1,179 @@
+# index.html
+
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Moustache</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="cursor"></div>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Dom Moustache</h1>
+
+            <ul class="nav-links">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#styles">Estilos</a></li>
+                <li><a href="#reviews">Avaliações</a></li>
+                <li><a href="#gallery">Galeria</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero reveal">
+
+        <!-- TROQUE ESSE LINK PELO SEU -->
+        <img src="https://images.unsplash.com/photo-1517832606299-7ae9b720a186?q=80&w=1200&auto=format&fit=crop" alt="Barbearia">
+
+        <div class="overlay"></div>
+
+        <div class="hero-content">
+            <h2>Mais que um corte.<br>Uma identidade.</h2>
+
+            <p>
+                A experiência premium da barbearia moderna.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="interactive-btn">Conheça a Marca</button>
+                <button class="interactive-btn outline">Explorar Estilos</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about reveal">
+        <div class="section-title">
+            <h2>Sobre a Dom Moustache</h2>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    A Dom Moustache nasceu para transformar cortes em experiências.
+                    Unindo elegância, personalidade e estilo moderno.
+                </p>
+
+                <div class="stats">
+                    <div class="stat-card">
+                        <h3>+10k</h3>
+                        <span>Clientes satisfeitos</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>5★</h3>
+                        <span>Avaliação premium</span>
+                    </div>
+
+                    <div class="stat-card">
+                        <h3>+5</h3>
+                        <span>Anos de estilo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="styles" class="styles reveal">
+        <div class="section-title">
+            <h2>Estilos</h2>
+        </div>
+
+        <div class="cards-container">
+
+            <div class="style-card">
+                <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=800&auto=format&fit=crop" alt="Fade Moderno">
+                <h3>Fade Moderno</h3>
+            </div>
+
+            <div class="style-card">
+                <img src="https://images.unsplash.com/photo-1519500528352-2d1460418d41?q=80&w=800&auto=format&fit=crop" alt="Executivo">
+                <h3>Executivo</h3>
+            </div>
+
+            <div class="style-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz3945uURHIIMPx6wLJcmibVQrwC6JLacIQw&s" alt="Viking">
+                <h3>Viking</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews reveal">
+        <div class="section-title">
+            <h2>Avaliações</h2>
+        </div>
+
+        <div class="reviews-container">
+
+            <div class="review-card">
+                <h3>★★★★★</h3>
+                <p>
+                    “A melhor experiência premium que já tive.”
+                </p>
+                <span>— Carlos Henrique</span>
+            </div>
+
+            <div class="review-card">
+                <h3>★★★★★</h3>
+                <p>
+                    “Visual impecável e atendimento surreal.”
+                </p>
+                <span>— Rafael Martins</span>
+            </div>
+
+            <div class="review-card">
+                <h3>★★★★★</h3>
+                <p>
+                    “A Dom Moustache redefiniu o conceito de barbearia.”
+                </p>
+                <span>— Lucas Almeida</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery reveal">
+        <div class="section-title">
+            <h2>Galeria</h2>
+        </div>
+
+        <div class="gallery-grid">
+
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop" alt="Galeria 1">
+
+            <img src="https://www.guiadasemana.com.br/contentFiles/image/opt_w1024h1024/2017/02/FEA/49393_shutterstock-barbearia.jpg" alt="Galeria 2">
+
+            <img src="https://kollamobilia.cdn.magazord.com.br/img/2025/08/produto/2091/09-bancada-auxiliar-para-barbearia-t1.png?ims=600x600" alt="Galeria 3">
+
+            <img src="https://images.unsplash.com/photo-1493256338651-d82f7acb2b38?q=80&w=800&auto=format&fit=crop" alt="Galeria 4">
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Dom Moustache</h2>
+        <p>Onde o estilo vira lenda.</p>
+
+        <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">TikTok</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
