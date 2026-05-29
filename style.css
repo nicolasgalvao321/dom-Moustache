@@ -120,6 +120,11 @@ body {
     justify-content: center;
 }
 
+.hero-buttons a {
+    text-decoration: none;
+    display: inline-block;
+}
+
 .interactive-btn {
     padding: 15px 30px;
     border: none;
