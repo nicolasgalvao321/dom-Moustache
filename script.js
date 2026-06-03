@@ -59,3 +59,113 @@ cards.forEach((card) => {
     });
 
 });
+
+/* CHATBOT */
+
+const chatToggle =
+document.getElementById("chat-toggle");
+
+const chatContainer =
+document.getElementById("chat-container");
+
+chatToggle.addEventListener("click", () => {
+
+    if(chatContainer.style.display === "flex"){
+        chatContainer.style.display = "none";
+    }else{
+        chatContainer.style.display = "flex";
+    }
+
+});
+
+const sendBtn =
+document.getElementById("send-btn");
+
+const userInput =
+document.getElementById("user-input");
+
+const chatMessages =
+document.getElementById("chat-messages");
+
+function responderPergunta(texto){
+
+    texto = texto.toLowerCase();
+
+    if(
+        texto.includes("horário") ||
+        texto.includes("hora") ||
+        texto.includes("aberto")
+    ){
+        return "Funcionamos diariamente das 9h às 20h.";
+    }
+
+    if(
+        texto.includes("fade") 
+    ){
+        return "O Fade Moderno é um dos cortes mais procurados da Dom Moustache.";
+    }
+
+    if(
+        texto.includes("barba")
+    ){
+        return "Também oferecemos modelagem profissional de barba.";
+    }
+
+    if(
+        texto.includes("agendar") ||
+        texto.includes("horario")
+    ){
+        return "Clique no botão 'Agende seu horário' na página principal.";
+    }
+
+        if(
+        texto.includes("viking") 
+    ){
+        return "O Corte Viking é um estilo ousado e moderno, perfeito para quem quer se destacar.";
+    }
+
+    return "Desculpe, não consegui responder sua pergunta. Entre em contato com nossa equipe para informações mais específicas.";
+}
+
+function enviarMensagem(){
+
+    const texto = userInput.value.trim();
+
+    if(texto === "") return;
+
+    chatMessages.innerHTML += `
+        <div class="user-message">
+            ${texto}
+        </div>
+    `;
+
+    const resposta =
+    responderPergunta(texto);
+
+    chatMessages.innerHTML += `
+        <div class="bot-message">
+            ${resposta}
+        </div>
+    `;
+
+    userInput.value = "";
+
+    chatMessages.scrollTop =
+    chatMessages.scrollHeight;
+}
+
+sendBtn.addEventListener(
+    "click",
+    enviarMensagem
+);
+
+userInput.addEventListener(
+    "keypress",
+    (e) => {
+
+        if(e.key === "Enter"){
+            enviarMensagem();
+        }
+
+    }
+);
