@@ -113,7 +113,7 @@ function responderPergunta(texto){
 
     if(
         texto.includes("agendar") ||
-        texto.includes("horario")
+        texto.includes("marcar")
     ){
         return "Clique no botão 'Agende seu horário' na página principal.";
     }
@@ -122,6 +122,13 @@ function responderPergunta(texto){
         texto.includes("viking") 
     ){
         return "O Corte Viking é um estilo ousado e moderno, perfeito para quem quer se destacar.";
+    }
+
+        if(
+        texto.includes("valor") ||
+        texto.includes("preço")
+    ){
+        return "Os valores de corte são de 45 reais, agora da barba são 35 reais";
     }
 
     return "Desculpe, não consegui responder sua pergunta. Entre em contato com nossa equipe para informações mais específicas.";
