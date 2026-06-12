@@ -548,3 +548,16 @@ footer p {
 
     font-weight:bold;
 }
+
+.foto-avaliacao{
+
+    width:100%;
+
+    max-height:400px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+}
