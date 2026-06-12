@@ -1,4 +1,4 @@
-    import { initializeApp }
+import { initializeApp }
 from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 
 import {
@@ -14,7 +14,7 @@ from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const firebaseConfig = {
 
-    apiKey: "SUA_API_KEY",
+    apiKey: "AIzaSyASgoTtFKGHAOf9jMRgDk9w0jYvXeslEnw",
 
     authDomain: "forum-domoustache.firebaseapp.com",
 
