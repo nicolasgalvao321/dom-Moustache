@@ -187,29 +187,29 @@ botoesLikes.forEach((botao) => {
 
         lista.innerHTML += `
 
-            <div class="avaliacao">
+    <div class="avaliacao">
 
-                <h3>
-                    ${dados.nome}
-                </h3>
+        ${
+            dados.fotoURL
+            ?
+            `<img src="${dados.fotoURL}" class="foto-avaliacao">`
+            :
+            ""
+        }
 
-                <p>
-                    ${"⭐".repeat(dados.nota)}
-                </p>
+        <h3>${dados.nome}</h3>
 
-                <p>
-                    ${dados.comentario}
-                </p>
+        <p>${"⭐".repeat(dados.nota)}</p>
 
-                <button class="likes-btn">
+        <p>${dados.comentario}</p>
 
-                    👍 ${dados.likes}
+        <button class="likes-btn">
+            👍 ${dados.likes}
+        </button>
 
-                </button>
+    </div>
 
-            </div>
-
-        `;
+`;
 
     });
 
