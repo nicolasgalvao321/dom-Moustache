@@ -109,44 +109,58 @@ let fotoURL = "";
 
 });
 
-async function carregarAvaliacoes(){
+const botoesLikes =
+document.querySelectorAll(".likes-btn");
 
-    const lista =
-    document.getElementById(
-        "lista-avaliacoes"
+botoesLikes.forEach((botao) => {
+
+    botao.addEventListener(
+        "click",
+        async () => {
+
+            const id =
+            botao.dataset.id;
+
+            const chaveCurtida =
+            `curtiu_${id}`;
+
+            if(
+                localStorage.getItem(
+                    chaveCurtida
+                )
+            ){
+
+                alert(
+                    "Você já curtiu esta avaliação."
+                );
+
+                return;
+            }
+
+            const referencia =
+            doc(
+                db,
+                "avaliacoes",
+                id
+            );
+
+            await updateDoc(
+                referencia,
+                {
+                    likes: increment(1)
+                }
+            );
+
+            localStorage.setItem(
+                chaveCurtida,
+                "true"
+            );
+
+            carregarAvaliacoes();
+
+        }
     );
 
-    lista.innerHTML = "";
-
-    const docs =
-    await getDocs(
-        collection(db, "avaliacoes")
-    );
-
-    docs.forEach((documento) => {
-
-    const dados = documento.data();
-
-    lista.innerHTML += `
-
-        <div class="avaliacao">
-
-            <h3>${dados.nome}</h3>
-
-            <p>${"⭐".repeat(dados.nota)}</p>
-
-            <p>${dados.comentario}</p>
-
-            <button
-                class="likes-btn"
-                data-id="${documento.id}"
-            >
-                👍 ${dados.likes}
-            </button>
-
-        </div>
-
-    `;
 });
 
     const botoesLikes =
