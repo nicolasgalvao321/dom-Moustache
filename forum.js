@@ -49,6 +49,11 @@ publicar.addEventListener("click", async () => {
     parseInt(
         document.getElementById("nota").value
     );
+    
+    const arquivo =
+    document.getElementById("foto").files[0];
+
+let fotoURL = "";
 
     if(!nome || !comentario){
 
@@ -58,6 +63,36 @@ publicar.addEventListener("click", async () => {
 
         return;
     }
+    
+    if (arquivo) {
+
+    const formData = new FormData();
+
+    formData.append(
+        "file",
+        arquivo
+    );
+
+    formData.append(
+        "upload_preset",
+        "Dom Moustache"
+    );
+
+    const resposta =
+    await fetch(
+        "https://api.cloudinary.com/v1_1/duo7iqlb0/image/upload",
+        {
+            method: "POST",
+            body: formData
+        }
+    );
+
+    const dados =
+    await resposta.json();
+
+    fotoURL =
+    dados.secure_url;
+}
 
     await addDoc(
         collection(db, "avaliacoes"),
@@ -66,6 +101,7 @@ publicar.addEventListener("click", async () => {
             comentario,
             nota,
             likes: 0
+            fotoURL
         }
     );
 
