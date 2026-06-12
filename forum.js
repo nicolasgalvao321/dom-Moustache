@@ -10,7 +10,6 @@ import {
     updateDoc,
     increment
 }
-}
 from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -100,7 +99,7 @@ let fotoURL = "";
             nome,
             comentario,
             nota,
-            likes: 0
+            likes: 0,
             fotoURL
         }
     );
@@ -163,38 +162,6 @@ botoesLikes.forEach((botao) => {
 
 });
 
-    const botoesLikes =
-document.querySelectorAll(".likes-btn");
-
-botoesLikes.forEach((botao) => {
-
-    botao.addEventListener(
-        "click",
-        async () => {
-
-            const id =
-            botao.dataset.id;
-
-            const referencia =
-            doc(
-                db,
-                "avaliacoes",
-                id
-            );
-
-            await updateDoc(
-                referencia,
-                {
-                    likes: increment(1)
-                }
-            );
-
-            carregarAvaliacoes();
-
-        }
-    );
-
-});
 
         const dados =
         doc.data();
@@ -218,6 +185,8 @@ botoesLikes.forEach((botao) => {
         <p>${dados.comentario}</p>
 
         <button class="likes-btn">
+        data-id="${documento.id}"
+        >
             👍 ${dados.likes}
         </button>
 
