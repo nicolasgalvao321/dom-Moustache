@@ -162,6 +162,23 @@ botoesLikes.forEach((botao) => {
 
 });
 
+async function carregarAvaliacoes() {
+
+    const lista =
+
+    document.getElementById("lista-avaliacoes");
+
+    lista.innerHTML = "";
+
+    const docs =
+
+    await getDocs(
+
+        collection(db, "avaliacoes")
+
+    );
+
+    docs.forEach((documento) => {
 
         const dados =
         doc.data();
