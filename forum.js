@@ -1,4 +1,4 @@
-import { initializeApp }
+    import { initializeApp }
 from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
 
 import {
@@ -14,7 +14,7 @@ from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
 const firebaseConfig = {
 
-    apiKey: "AIzaSyASgoTtFKGHAOf9jMRgDk9w0jYvXeslEnw",
+    apiKey: "SUA_API_KEY",
 
     authDomain: "forum-domoustache.firebaseapp.com",
 
@@ -48,13 +48,13 @@ publicar.addEventListener("click", async () => {
     parseInt(
         document.getElementById("nota").value
     );
-    
+
     const arquivo =
-    document.getElementById("foto").files[0];
+    document.getElementById("foto")?.files[0];
 
-let fotoURL = "";
+    let fotoURL = "";
 
-    if(!nome || !comentario){
+    if (!nome || !comentario) {
 
         alert(
             "Preencha todos os campos."
@@ -62,156 +62,195 @@ let fotoURL = "";
 
         return;
     }
-    
-    if (arquivo) {
 
-    const formData = new FormData();
+    try {
 
-    formData.append(
-        "file",
-        arquivo
-    );
+        if (arquivo) {
 
-    formData.append(
-        "upload_preset",
-        "Dom Moustache"
-    );
+            const formData =
+            new FormData();
 
-    const resposta =
-    await fetch(
-        "https://api.cloudinary.com/v1_1/duo7iqlb0/image/upload",
-        {
-            method: "POST",
-            body: formData
-        }
-    );
-
-    const dados =
-    await resposta.json();
-
-    fotoURL =
-    dados.secure_url;
-}
-
-    await addDoc(
-        collection(db, "avaliacoes"),
-        {
-            nome,
-            comentario,
-            nota,
-            likes: 0,
-            fotoURL
-        }
-    );
-
-    location.reload();
-
-});
-
-const botoesLikes =
-document.querySelectorAll(".likes-btn");
-
-botoesLikes.forEach((botao) => {
-
-    botao.addEventListener(
-        "click",
-        async () => {
-
-            const id =
-            botao.dataset.id;
-
-            const chaveCurtida =
-            `curtiu_${id}`;
-
-            if(
-                localStorage.getItem(
-                    chaveCurtida
-                )
-            ){
-
-                alert(
-                    "Você já curtiu esta avaliação."
-                );
-
-                return;
-            }
-
-            const referencia =
-            doc(
-                db,
-                "avaliacoes",
-                id
+            formData.append(
+                "file",
+                arquivo
             );
 
-            await updateDoc(
-                referencia,
+            formData.append(
+                "upload_preset",
+                "Dom Moustache"
+            );
+
+            const resposta =
+            await fetch(
+                "https://api.cloudinary.com/v1_1/duo7iqlb0/image/upload",
                 {
-                    likes: increment(1)
+                    method: "POST",
+                    body: formData
                 }
             );
 
-            localStorage.setItem(
-                chaveCurtida,
-                "true"
-            );
+            const dadosUpload =
+            await resposta.json();
 
-            carregarAvaliacoes();
-
+            fotoURL =
+            dadosUpload.secure_url;
         }
-    );
+
+        await addDoc(
+            collection(
+                db,
+                "avaliacoes"
+            ),
+            {
+                nome,
+                comentario,
+                nota,
+                likes: 0,
+                fotoURL
+            }
+        );
+
+        document.getElementById("nome").value = "";
+        document.getElementById("comentario").value = "";
+
+        if(
+            document.getElementById("foto")
+        ){
+            document.getElementById("foto").value = "";
+        }
+
+        carregarAvaliacoes();
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Erro ao publicar avaliação."
+        );
+    }
 
 });
 
 async function carregarAvaliacoes() {
 
     const lista =
+    document.getElementById(
+        "lista-avaliacoes"
+    );
 
-    document.getElementById("lista-avaliacoes");
+    if(!lista) return;
 
     lista.innerHTML = "";
 
-    const docs =
-
+    const snapshot =
     await getDocs(
-
-        collection(db, "avaliacoes")
-
+        collection(
+            db,
+            "avaliacoes"
+        )
     );
 
-    docs.forEach((documento) => {
+    snapshot.forEach(
+        (documento) => {
 
-        const dados =
-        doc.data();
+            const dados =
+            documento.data();
 
-        lista.innerHTML += `
+            lista.innerHTML += `
 
-    <div class="avaliacao">
+            <div class="avaliacao">
 
-        ${
-            dados.fotoURL
-            ?
-            `<img src="${dados.fotoURL}" class="foto-avaliacao">`
-            :
-            ""
+                ${
+                    dados.fotoURL
+                    ?
+                    `<img
+                        src="${dados.fotoURL}"
+                        class="foto-avaliacao"
+                    >`
+                    :
+                    ""
+                }
+
+                <h3>${dados.nome}</h3>
+
+                <p>${"⭐".repeat(dados.nota)}</p>
+
+                <p>${dados.comentario}</p>
+
+                <button
+                    class="likes-btn"
+                    data-id="${documento.id}"
+                >
+                    👍 ${dados.likes}
+                </button>
+
+            </div>
+
+            `;
+
         }
+    );
 
-        <h3>${dados.nome}</h3>
+    const botoesLikes =
+    document.querySelectorAll(
+        ".likes-btn"
+    );
 
-        <p>${"⭐".repeat(dados.nota)}</p>
+    botoesLikes.forEach(
+        (botao) => {
 
-        <p>${dados.comentario}</p>
+            botao.addEventListener(
+                "click",
+                async () => {
 
-        <button class="likes-btn">
-        data-id="${documento.id}"
-        >
-            👍 ${dados.likes}
-        </button>
+                    const id =
+                    botao.dataset.id;
 
-    </div>
+                    const chaveCurtida =
+                    `curtiu_${id}`;
 
-`;
+                    if(
+                        localStorage.getItem(
+                            chaveCurtida
+                        )
+                    ){
 
-    });
+                        alert(
+                            "Você já curtiu esta avaliação."
+                        );
+
+                        return;
+                    }
+
+                    const referencia =
+                    doc(
+                        db,
+                        "avaliacoes",
+                        id
+                    );
+
+                    await updateDoc(
+                        referencia,
+                        {
+                            likes:
+                            increment(1)
+                        }
+                    );
+
+                    localStorage.setItem(
+                        chaveCurtida,
+                        "true"
+                    );
+
+                    carregarAvaliacoes();
+
+                }
+            );
+
+        }
+    );
 
 }
 
