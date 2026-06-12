@@ -5,7 +5,11 @@ import {
     getFirestore,
     collection,
     addDoc,
-    getDocs
+    getDocs,
+    doc,
+    updateDoc,
+    increment
+}
 }
 from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
 
@@ -83,7 +87,64 @@ async function carregarAvaliacoes(){
         collection(db, "avaliacoes")
     );
 
-    docs.forEach((doc) => {
+    docs.forEach((documento) => {
+
+    const dados = documento.data();
+
+    lista.innerHTML += `
+
+        <div class="avaliacao">
+
+            <h3>${dados.nome}</h3>
+
+            <p>${"⭐".repeat(dados.nota)}</p>
+
+            <p>${dados.comentario}</p>
+
+            <button
+                class="likes-btn"
+                data-id="${documento.id}"
+            >
+                👍 ${dados.likes}
+            </button>
+
+        </div>
+
+    `;
+});
+
+    const botoesLikes =
+document.querySelectorAll(".likes-btn");
+
+botoesLikes.forEach((botao) => {
+
+    botao.addEventListener(
+        "click",
+        async () => {
+
+            const id =
+            botao.dataset.id;
+
+            const referencia =
+            doc(
+                db,
+                "avaliacoes",
+                id
+            );
+
+            await updateDoc(
+                referencia,
+                {
+                    likes: increment(1)
+                }
+            );
+
+            carregarAvaliacoes();
+
+        }
+    );
+
+});
 
         const dados =
         doc.data();
