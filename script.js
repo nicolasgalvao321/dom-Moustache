@@ -65,9 +65,6 @@ cards.forEach((card) => {
 const chatToggle =
 document.getElementById("chat-toggle");
 
-const chatToggle =
-document.getElementById("chat-toggle");
-
 const chatContainer =
 document.getElementById("chat-container");
 
