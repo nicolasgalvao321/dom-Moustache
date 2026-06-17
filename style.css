@@ -355,29 +355,24 @@ footer p {
     transition: 0.3s;
 }
 
-#chat-container{
+#chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 
-    position:fixed;
+    width: 90px;
+    height: 90px;
 
-    right:25px;
-    bottom:110px;
+    cursor: pointer;
+    z-index: 10000;
 
-    width:350px;
-    height:500px;
+    background: transparent;
+}
 
-    background:#111;
-
-    border:1px solid gold;
-
-    border-radius:20px;
-
-    display:none;
-
-    flex-direction:column;
-
-    overflow:hidden;
-
-    z-index:99999;
+#chat-toggle img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .chat-header{
