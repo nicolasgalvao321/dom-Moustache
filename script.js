@@ -65,15 +65,22 @@ cards.forEach((card) => {
 const chatToggle =
 document.getElementById("chat-toggle");
 
+const chatToggle =
+document.getElementById("chat-toggle");
+
 const chatContainer =
 document.getElementById("chat-container");
 
 chatToggle.addEventListener("click", () => {
 
-    if(chatContainer.style.display === "flex"){
+    if (chatContainer.style.display === "flex") {
+
         chatContainer.style.display = "none";
-    }else{
+
+    } else {
+
         chatContainer.style.display = "flex";
+
     }
 
 });
