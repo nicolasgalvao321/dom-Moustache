@@ -339,29 +339,20 @@ footer p {
 
 /* CHATBOT */
 
-#chat-toggle{
-    position:fixed;
-    bottom:25px;
-    right:25px;
+#chat-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    cursor: pointer;
+    z-index: 9999;
+    background: transparent;
+    border: none;
+}
 
-    width:70px;
-    height:70px;
-
-    border-radius:50%;
-
-    background:gold;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:2rem;
-
-    cursor:pointer;
-
-    z-index:99999;
-
-    box-shadow:0 0 20px gold;
+#chat-toggle img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
 }
 
 #chat-container{
