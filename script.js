@@ -186,19 +186,19 @@ const anuncios = [
 {
 titulo:"Alura",
 texto:"Cursos de programação e tecnologia.",
-link:"#"
+link:"https://www.alura.com.br"
 },
 
 {
 titulo:"Hostinger",
 texto:"Crie sites profissionais com facilidade.",
-link:"#"
+link:"https://www.hostinger.com/br"
 },
 
 {
 titulo:"Impacta",
 texto:"Cursos de tecnologia e inovação.",
-link:"#"
+link:"https://www.impacta.com.br"
 },
 
 {
