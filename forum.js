@@ -275,4 +275,39 @@ async function carregarAvaliacoes() {
 
 }
 
+document.addEventListener("click", async (e) => {
+
+    if(
+        e.target.classList.contains(
+            "responder-btn"
+        )
+    ){
+
+        const resposta =
+        prompt(
+            "Digite a resposta da Dom Moustache:"
+        );
+
+        if(!resposta) return;
+
+        const id =
+        e.target.dataset.id;
+
+        await updateDoc(
+            doc(
+                db,
+                "avaliacoes",
+                id
+            ),
+            {
+                resposta
+            }
+        );
+
+        carregarAvaliacoes();
+
+    }
+
+});
+
 carregarAvaliacoes();
