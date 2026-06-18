@@ -106,7 +106,8 @@ publicar.addEventListener("click", async () => {
                 comentario,
                 nota,
                 likes: 0,
-                fotoURL
+                fotoURL,
+                resposta: ""
             }
         );
 
@@ -178,6 +179,19 @@ async function carregarAvaliacoes() {
                 <p>${"⭐".repeat(dados.nota)}</p>
 
                 <p>${dados.comentario}</p>
+                
+                ${
+    dados.resposta
+    ?
+    `
+    <div class="resposta-barbearia">
+        <strong>Resposta da Dom Moustache:</strong>
+        <p>${dados.resposta}</p>
+    </div>
+    `
+    :
+    ""
+}
 
                 <button
                     class="likes-btn"
@@ -185,6 +199,13 @@ async function carregarAvaliacoes() {
                 >
                     👍 ${dados.likes}
                 </button>
+                
+                <button
+    class="responder-btn"
+    data-id="${documento.id}"
+    >
+        Responder
+    </button>
 
             </div>
 
