@@ -193,21 +193,21 @@ link:"https://www.alura.com.br"
 {
 titulo:"Hostinger",
 texto:"Crie sites profissionais com facilidade.",
-imagem:"https://upload.wikimedia.org/wikipedia/commons/3/35/Hostinger_logo_black.svg",
+imagem:"IMG_8451.png",
 link:"https://www.hostinger.com.br"
 },
 
 {
 titulo:"Impacta",
 texto:"Cursos de tecnologia e inovação.",
-imagem:"https://www.impacta.com.br/themes/wc_agenciaimpacta/assets/images/logo-impacta.png",
+imagem:"IMG_8449.png",
 link:"https://www.impacta.com.br"
 },
 
 {
 titulo:"Fundação Bradesco",
 texto:"Aprenda tecnologia gratuitamente.",
-imagem:"https://www.ev.org.br/Content/images/logo.png",
+imagem:"IMG_8450.webp",
 link:"https://www.ev.org.br"
 
 }
