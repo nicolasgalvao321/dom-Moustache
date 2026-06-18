@@ -180,3 +180,69 @@ userInput.addEventListener(
 
     }
 );
+
+const anuncios = [
+
+{
+titulo:"Alura",
+texto:"Cursos de programação e tecnologia.",
+link:"#"
+},
+
+{
+titulo:"Hostinger",
+texto:"Crie sites profissionais com facilidade.",
+link:"#"
+},
+
+{
+titulo:"Impacta",
+texto:"Cursos de tecnologia e inovação.",
+link:"#"
+},
+
+{
+titulo:"Fundação Bradesco",
+texto:"Aprenda tecnologia gratuitamente.",
+link:"#"
+}
+
+];
+
+
+let anuncioAtual = 0;
+
+
+function trocarAnuncio(){
+
+document.getElementById("anuncio-titulo").innerHTML =
+anuncios[anuncioAtual].titulo;
+
+
+document.getElementById("anuncio-texto").innerHTML =
+anuncios[anuncioAtual].texto;
+
+
+document.getElementById("anuncio-link").href =
+anuncios[anuncioAtual].link;
+
+
+anuncioAtual++;
+
+
+if(anuncioAtual >= anuncios.length){
+
+anuncioAtual = 0;
+
+}
+
+}
+
+
+trocarAnuncio();
+
+
+setInterval(
+trocarAnuncio,
+3000
+);
