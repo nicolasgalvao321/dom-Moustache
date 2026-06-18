@@ -568,3 +568,21 @@ footer p {
 
     z-index: 9999;
 }
+
+.responder-btn {
+
+    margin-left: 10px;
+
+    background: #333;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
