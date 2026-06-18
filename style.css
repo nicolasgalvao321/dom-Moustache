@@ -355,6 +355,8 @@ footer p {
     z-index: 10000;
 
     background: transparent;
+    
+    border: 3px solid red;
 }
 
 
