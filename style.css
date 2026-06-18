@@ -356,7 +356,6 @@ footer p {
 
     background: transparent;
     
-    border: 3px solid red;
 }
 
 
@@ -544,25 +543,20 @@ footer p {
 }
 
 #chat-container {
+    display: none;
 
     position: fixed;
-
     bottom: 110px;
-
     right: 20px;
 
     width: 350px;
-
     height: 500px;
 
     background: #111;
-
     border: 2px solid gold;
-
     border-radius: 20px;
 
     flex-direction: column;
-
     overflow: hidden;
 
     z-index: 9999;
