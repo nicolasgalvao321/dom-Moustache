@@ -586,3 +586,23 @@ footer p {
     cursor: pointer;
 
 }
+
+.resposta-barbearia {
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    background: rgba(255,215,0,0.1);
+
+    border-left: 4px solid gold;
+
+    border-radius: 10px;
+
+}
+
+.resposta-barbearia strong {
+
+    color: gold;
+
+}
