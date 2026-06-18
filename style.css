@@ -606,3 +606,78 @@ footer p {
     color: gold;
 
 }
+
+.anuncio {
+
+    padding: 60px 8%;
+
+}
+
+
+.anuncio-box {
+
+    background: linear-gradient(
+        135deg,
+        #111,
+        #222
+    );
+
+    border: 1px solid gold;
+
+    border-radius: 25px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    transition: 0.4s;
+
+}
+
+
+.anuncio-box:hover {
+
+    transform: scale(1.03);
+
+    box-shadow: 0 0 30px gold;
+
+}
+
+
+.anuncio-box h2 {
+
+    color: gold;
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 3rem;
+
+}
+
+
+.anuncio-box p {
+
+    color: #ddd;
+
+    margin: 20px 0;
+
+}
+
+
+.anuncio-box a {
+
+    display:inline-block;
+
+    background:gold;
+
+    color:black;
+
+    padding:12px 25px;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
