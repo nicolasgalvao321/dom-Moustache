@@ -304,7 +304,6 @@ footer p {
 }
 
 .reveal {
-    opacity: 0;
     transform: translateY(80px);
     transition: all 1s ease;
 }
@@ -559,8 +558,6 @@ footer p {
     border: 2px solid gold;
 
     border-radius: 20px;
-
-    display: none;
 
     flex-direction: column;
 
