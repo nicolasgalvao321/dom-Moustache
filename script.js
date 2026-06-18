@@ -204,7 +204,7 @@ link:"https://www.impacta.com.br"
 {
 titulo:"Fundação Bradesco",
 texto:"Aprenda tecnologia gratuitamente.",
-link:"#"
+link:"https://fundacao.bradesco"
 }
 
 ];
