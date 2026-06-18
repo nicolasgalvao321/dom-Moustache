@@ -186,25 +186,30 @@ const anuncios = [
 {
 titulo:"Alura",
 texto:"Cursos de programação e tecnologia.",
+imagem:"https://www.alura.com.br/assets/img/alura-logo.1686744887.svg",
 link:"https://www.alura.com.br"
 },
 
 {
 titulo:"Hostinger",
 texto:"Crie sites profissionais com facilidade.",
-link:"https://www.hostinger.com/br"
+imagem:"https://upload.wikimedia.org/wikipedia/commons/3/35/Hostinger_logo_black.svg",
+link:"https://www.hostinger.com.br"
 },
 
 {
 titulo:"Impacta",
 texto:"Cursos de tecnologia e inovação.",
+imagem:"https://www.impacta.com.br/themes/wc_agenciaimpacta/assets/images/logo-impacta.png",
 link:"https://www.impacta.com.br"
 },
 
 {
 titulo:"Fundação Bradesco",
 texto:"Aprenda tecnologia gratuitamente.",
-link:"https://fundacao.bradesco"
+imagem:"https://www.ev.org.br/Content/images/logo.png",
+link:"https://www.ev.org.br"
+
 }
 
 ];
@@ -215,25 +220,30 @@ let anuncioAtual = 0;
 
 function trocarAnuncio(){
 
-document.getElementById("anuncio-titulo").innerHTML =
+document.getElementById(
+    "anuncio-imagem"
+).src =
+anuncios[anuncioAtual].imagem;
+
+document.getElementById(
+    "anuncio-titulo"
+).innerHTML =
 anuncios[anuncioAtual].titulo;
 
-
-document.getElementById("anuncio-texto").innerHTML =
+document.getElementById(
+    "anuncio-texto"
+).innerHTML =
 anuncios[anuncioAtual].texto;
 
-
-document.getElementById("anuncio-link").href =
+document.getElementById(
+    "anuncio-link"
+).href =
 anuncios[anuncioAtual].link;
-
 
 anuncioAtual++;
 
-
 if(anuncioAtual >= anuncios.length){
-
-anuncioAtual = 0;
-
+    anuncioAtual = 0;
 }
 
 }
